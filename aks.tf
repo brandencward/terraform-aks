@@ -12,7 +12,7 @@ resource "azurerm_kubernetes_cluster" "sandbox" {
   
   linux_profile {
     admin_username = "azureuser"
-    ssh_key = {
+    ssh_key {
       key_data = replace(var.akc_ssh_key,"\n","")
     }
   }
@@ -23,7 +23,7 @@ resource "azurerm_kubernetes_cluster" "sandbox" {
     vm_size    = var.akc_sys_vm_size
     only_critical_addons_enabled = true // Only system Pods. No App Pods.
     orchestrator_version = var.akc_kubernetes_version
-    //enable_auto_scaling = true // Do not want for learning experience
+    enable_auto_scaling = true // Do not want for learning experience
     max_pods = var.akc_max_pods
     min_count = var.akc_min_count // Min Node pool should be 1 for Training.
     max_count = var. akc_max_count // Max Node pool for training should be low. Max of 3 for training.
@@ -43,7 +43,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "app_nodepool" {
   node_count            = var.akc_cnp_node_count
   mode = "User" // Specify User Apps. No System Pods.
   orchestrator_version = var.akc_kubernetes_version
-  //enable_auto_scaling = true // Do not want for learning experience
+  enable_auto_scaling = true // Do not want for learning experience
   max_pods = var.akc_max_pods
   min_count = var.akc_min_count // Min Node pool should be 1 for Training.
   max_count = var. akc_max_count // Max Node pool for training should be low. Max of 3 for training.
