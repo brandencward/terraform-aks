@@ -12,7 +12,7 @@ in the terminal
 
 az login
 
-az account set --subscription ab105f5a-066a-47a0-a117-43c19828cd55
+az account set --subscription SUBSCRIPTIONID
 
 Clone the terraform-storage Repo located here: https://github.com/brandencward/terraform-storage
 
