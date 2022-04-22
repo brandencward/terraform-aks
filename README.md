@@ -1,6 +1,6 @@
 ## terraform-aks
 
-This is a basic repo for illustrating the structure of a simple terraform project. Utilizes the resource created by [terraform-storage](https://github.com/brandencward/terraform-aks) as the backend. It uses helm as the package installer
+This is a basic repo for illustrating the structure of a simple terraform project. Utilizes the resource created by [terraform-storage](https://github.com/brandencward/terraform-storage) as the backend. It uses helm as the package installer
 
 General Setup and Testing:
 
