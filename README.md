@@ -74,13 +74,6 @@ Open and edit:
 ++  tag: "amd64"
 ```
 
-\blinky-helm\templates\ingress.yaml
-change line 41 to a -
-```diff
---   - host: {{ .host | quote }}
-++   -
-```
-
 **Install Blinky via Helm**
 ```console
 helm install blinky .
@@ -93,6 +86,17 @@ kubectl get services -A
 **Test with Blinky**
 ```console
 curl http://**IP**/app/blinky
+
+           .'|_.-
+         .'  '  /_
+      .-"    -.   '>
+   .- -. -.    '. /    /|_
+  .-.--.-.       ' >  /  /
+ (o( o( o )       \_."  <
+  '-'-''-'            ) <
+(       _.-'-.   ._\.  _\
+ '----"/--.__.-) _-  \|
+       "V""    "V""
 ```
 
 **Destroy so you don't get charged:exclamation:**
