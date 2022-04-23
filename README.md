@@ -29,7 +29,7 @@ cd terraform-storage
 
 terraform init
 
-terraform plan -var-file env\base.tfvars -out storage.tfplan
+terraform plan -var-file env/base.tfvars -out storage.tfplan
 
 terraform apply storage.tfplan
 ```
@@ -42,8 +42,10 @@ cd terraform-aks
 
 terraform init
 
-terraform plan -var-file env\sandbox.tfvars -out sandbox.tfplan
-
+terraform plan -var-file env/sandbox.tfvars -out sandbox.tfplan
+```
+Enter your SSH Public Key now
+```console
 terraform apply sandbox.tfplan
 
 az aks get-credentials --resource-group sandbox-resources --name sandbox-aks1
@@ -97,7 +99,7 @@ curl http://**IP**/app/blinky
 
 ```console
 cd terraform-aks
-terraform destroy -var-file env\sandbox.tfvars
+terraform destroy -var-file env/sandbox.tfvars
 ```
 enter public key used in the beginning
 should be 3 things being destroyed
@@ -105,8 +107,8 @@ Type Yes
 
 ```console
 cd terraform-storage
-terraform destroy -var-file env\base.tfvars
-terraform destroy -var-file env\base.tfvar
+terraform destroy -var-file env/base.tfvars
+terraform destroy -var-file env/base.tfvar
 ```
 should be 3 things being destroyed
 Type Yes
