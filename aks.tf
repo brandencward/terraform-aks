@@ -30,11 +30,17 @@ resource "azurerm_kubernetes_cluster" "sandbox" {
   }
 
   identity {
-    type = "SystemAssigned"
+    type = "UserAssigned"
+    user_assigned_identity_id = azurerm_user_assigned_identity.akc_identity.id
   }
-
+  kubelet_identity {
+    client_id = azurerm_user_assigned_identity.akc_identity.client_id
+    object_id = azurerm_user_assigned_identity.akc_identity.principal_id
+    user_assigned_identity_id = azurerm_user_assigned_identity.akc_identity.id
+  }
   tags = var.akc_tags  
 }
+
 
 resource "azurerm_kubernetes_cluster_node_pool" "app_nodepool" {
   name                  = var.akc_cnp_name

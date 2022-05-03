@@ -15,3 +15,8 @@ variable akc_ssh_key  {}
 variable akc_max_pods  {}
 variable akc_min_count  {}
 variable akc_max_count  {}
+variable kv_name  {}
+variable kv_soft_delete_retention_days {}
+variable kv_sku_name  {}
+variable kv_enabled {}
+variable slug {}
